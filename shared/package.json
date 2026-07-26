@@ -1,0 +1,58 @@
+{
+  "name": "@r3e-network/neo-miniapp-shared",
+  "version": "2.2.0",
+  "description": "Shared runtime for Neo MiniApps: components, composables, services, and chain helpers",
+  "license": "MIT",
+  "type": "module",
+  "main": "./components/index.ts",
+  "exports": {
+    ".": "./components/index.ts",
+    "./*": "./*"
+  },
+  "files": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.scss",
+    "**/*.css",
+    "**/*.json",
+    "!**/*.test.ts",
+    "!**/*.test.tsx",
+    "!test/**"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r3e-network/neo-miniapp-sdk.git",
+    "directory": "shared"
+  },
+  "dependencies": {
+    "@r3e-network/neo-miniapp-framework": "2.2.0"
+  },
+  "peerDependencies": {
+    "@douyinfe/semi-foundation": "^2.101.0",
+    "@douyinfe/semi-ui": "^2.101.0",
+    "ethers": "^6.16.0",
+    "lucide-react": ">=0.5.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "peerDependenciesMeta": {
+    "@douyinfe/semi-foundation": {
+      "optional": true
+    },
+    "@douyinfe/semi-ui": {
+      "optional": true
+    },
+    "ethers": {
+      "optional": true
+    },
+    "lucide-react": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "test": "vitest run"
+  }
+}

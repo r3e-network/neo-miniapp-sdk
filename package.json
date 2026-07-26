@@ -1,0 +1,33 @@
+{
+  "name": "@r3e-network/neo-miniapp-sdk",
+  "version": "2.2.0",
+  "private": true,
+  "description": "MiniApp SDK for the Neo MiniApps platform: business framework and shared app runtime",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r3e-network/neo-miniapp-sdk.git"
+  },
+  "workspaces": [
+    "framework",
+    "shared"
+  ],
+  "scripts": {
+    "test": "npm run -s test:framework && npm run -s test:shared",
+    "test:framework": "npm --workspace framework run test",
+    "test:shared": "npm --workspace shared run test",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "@vue/test-utils": "^2.4.6",
+    "glob": "^10.5.0",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0",
+    "vue": "^3.5.33"
+  }
+}

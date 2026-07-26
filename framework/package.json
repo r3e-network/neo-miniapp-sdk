@@ -1,0 +1,48 @@
+{
+  "name": "@r3e-network/neo-miniapp-framework",
+  "version": "2.2.0",
+  "description": "Business SDK surfaces exposed to Neo MiniApps as ctx.framework",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./*": "./*"
+  },
+  "files": [
+    "**/*.ts",
+    "**/*.tsx",
+    "!**/*.test.ts",
+    "!**/*.test.tsx",
+    "!test/**"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r3e-network/neo-miniapp-sdk.git",
+    "directory": "framework"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.9.7",
+    "@noble/hashes": "^1.8.0"
+  },
+  "peerDependencies": {
+    "lucide-react": ">=0.5.0",
+    "phaser": "^3.90.0",
+    "react": "^18.3.1"
+  },
+  "peerDependenciesMeta": {
+    "lucide-react": {
+      "optional": true
+    },
+    "phaser": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "test": "vitest run"
+  }
+}
