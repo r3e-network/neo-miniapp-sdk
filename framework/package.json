@@ -1,6 +1,6 @@
 {
   "name": "@r3e-network/neo-miniapp-framework",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Business SDK surfaces exposed to Neo MiniApps as ctx.framework",
   "license": "MIT",
   "type": "module",
@@ -11,11 +11,14 @@
     "./*": "./*"
   },
   "files": [
-    "**/*.ts",
-    "**/*.tsx",
+    "**/*",
     "!**/*.test.ts",
     "!**/*.test.tsx",
-    "!test/**"
+    "!test/**",
+    "!vitest.config.ts",
+    "!vitest.cross-repo.config.ts",
+    "!tsconfig.json",
+    "!**/*.map"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
