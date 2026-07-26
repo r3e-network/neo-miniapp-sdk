@@ -1,6 +1,7 @@
 import React from "react";
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
@@ -108,9 +109,10 @@ function makeServices() {
 }
 
 function sharedStyle(...segments: string[]) {
-  const sharedRoot = process.cwd().endsWith(`${path.sep}apps${path.sep}shared`)
-    ? process.cwd()
-    : path.resolve(process.cwd(), "apps/shared");
+  // Resolve relative to this test file rather than the cwd: the shared runtime
+  // is its own package now (`shared/`), not `apps/shared` inside a monorepo, and
+  // a cwd-based guess breaks under both layouts depending on where vitest runs.
+  const sharedRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
   return readFileSync(path.join(sharedRoot, ...segments), "utf8");
 }
 

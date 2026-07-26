@@ -53,6 +53,7 @@
     }
   },
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:cross-repo": "vitest run --config vitest.cross-repo.config.ts"
   }
 }

@@ -29,6 +29,10 @@
       "@shared/*": [
         "./shared/*"
       ]
-    }
+    },
+    "types": [
+      "vite/client",
+      "vitest/globals"
+    ]
   }
 }

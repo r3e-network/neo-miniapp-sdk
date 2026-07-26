@@ -26,7 +26,7 @@
     "directory": "framework"
   },
   "dependencies": {
-    "@noble/curves": "^1.9.7",
+    "@noble/curves": "^1.2.0",
     "@noble/hashes": "^1.8.0"
   },
   "peerDependencies": {
@@ -43,6 +43,7 @@
     }
   },
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:cross-repo": "vitest run --config vitest.cross-repo.config.ts"
   }
 }
