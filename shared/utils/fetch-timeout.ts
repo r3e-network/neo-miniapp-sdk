@@ -14,5 +14,5 @@ export {
   HttpResponseError,
   isTransientFetchError,
   fetchWithTimeout,
-} from "@framework/utils/fetch-timeout";
-export type { FetchWithTimeoutInit } from "@framework/utils/fetch-timeout";
+} from "@r3e-network/neo-miniapp-framework/utils/fetch-timeout";
+export type { FetchWithTimeoutInit } from "@r3e-network/neo-miniapp-framework/utils/fetch-timeout";

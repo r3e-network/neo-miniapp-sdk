@@ -6,5 +6,5 @@
  * imports working with the SAME function identities.
  */
 
-export { extractTxid, pollForTxEvent } from "@framework/utils/transaction";
-export type { PollForTxEventParams } from "@framework/utils/transaction";
+export { extractTxid, pollForTxEvent } from "@r3e-network/neo-miniapp-framework/utils/transaction";
+export type { PollForTxEventParams } from "@r3e-network/neo-miniapp-framework/utils/transaction";

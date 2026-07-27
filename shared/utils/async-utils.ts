@@ -13,4 +13,4 @@ export {
   retryAsync,
   pollForEvent,
   safeAsync,
-} from "@framework/utils/async-utils";
+} from "@r3e-network/neo-miniapp-framework/utils/async-utils";

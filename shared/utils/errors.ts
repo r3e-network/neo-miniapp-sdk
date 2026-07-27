@@ -18,4 +18,4 @@ export {
   isMiniAppError,
   formatErrorMessage,
   createStatusRef,
-} from "@framework/utils/errors";
+} from "@r3e-network/neo-miniapp-framework/utils/errors";

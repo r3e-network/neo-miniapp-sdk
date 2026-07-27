@@ -6,7 +6,7 @@
  */
 
 import { createContext } from "react";
-import type { Observable } from "@framework/reactive";
+import type { Observable } from "@r3e-network/neo-miniapp-framework/reactive";
 import type { MiniAppManifest } from "../types/miniapp-manifest";
 import type { StatusType } from "../composables/useStatusMessage";
 import type { PlatformServices } from "../services";
@@ -21,12 +21,12 @@ import type { MiniAppFramework } from "@framework";
 // framework canonical (framework/reactive.ts — Wave 6 consolidation). These
 // re-exports keep existing `@shared/react/context` imports working with the
 // SAME function identity and type.
-export type { Observable } from "@framework/reactive";
-export { createObservable } from "@framework/reactive";
+export type { Observable } from "@r3e-network/neo-miniapp-framework/reactive";
+export { createObservable } from "@r3e-network/neo-miniapp-framework/reactive";
 // Read-cell: the platform-owned "have we asked yet?" signal (see the
 // createReadCell doc comment in framework/reactive.ts for adoption notes).
-export type { ReadCell, ReadCellStatus } from "@framework/reactive";
-export { createReadCell } from "@framework/reactive";
+export type { ReadCell, ReadCellStatus } from "@r3e-network/neo-miniapp-framework/reactive";
+export { createReadCell } from "@r3e-network/neo-miniapp-framework/reactive";
 
 /**
  * Create a derived (computed) observable from one or more source observables.

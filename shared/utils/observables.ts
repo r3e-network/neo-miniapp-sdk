@@ -8,4 +8,4 @@
  * shape is structurally identical to the shared react/context Observable.
  */
 
-export { combineBusy } from "@framework/reactive";
+export { combineBusy } from "@r3e-network/neo-miniapp-framework/reactive";

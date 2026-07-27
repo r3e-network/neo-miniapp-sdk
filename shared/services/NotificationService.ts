@@ -32,7 +32,7 @@ import {
   classifyChainError,
   mapChainError,
   type ChainErrorKey,
-} from "@framework/utils/chain-errors";
+} from "@r3e-network/neo-miniapp-framework/utils/chain-errors";
 import type { EventBus } from "./EventBus";
 
 // ---------------------------------------------------------------------------

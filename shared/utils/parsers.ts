@@ -11,4 +11,4 @@ export {
   parseBool,
   encodeTokenId,
   parseDateInput,
-} from "@framework/utils/parsers";
+} from "@r3e-network/neo-miniapp-framework/utils/parsers";

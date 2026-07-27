@@ -16,10 +16,10 @@ export {
   buildAnchorAgentVerifierParam,
   deriveAnchorAgentAccounts,
   generateAASessionKeyPair,
-} from "@framework/utils/aa-account";
+} from "@r3e-network/neo-miniapp-framework/utils/aa-account";
 
 export type {
   RegistrationAccountOptions,
   AnchorAgentDerivationOptions,
   AnchorAgentAccount,
-} from "@framework/utils/aa-account";
+} from "@r3e-network/neo-miniapp-framework/utils/aa-account";

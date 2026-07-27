@@ -13,4 +13,4 @@ export {
   addressToScriptHash,
   normalizeScriptHash,
   ownerMatchesAddress,
-} from "@framework/utils/neo";
+} from "@r3e-network/neo-miniapp-framework/utils/neo";

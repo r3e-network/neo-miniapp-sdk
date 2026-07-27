@@ -29,4 +29,4 @@ export {
   formatCurrency,
   STAT_PLACEHOLDER,
   formatStat,
-} from "@framework/utils/format";
+} from "@r3e-network/neo-miniapp-framework/utils/format";

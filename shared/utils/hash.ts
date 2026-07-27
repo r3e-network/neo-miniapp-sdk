@@ -6,4 +6,4 @@
  * working with the SAME function identities.
  */
 
-export { sha256Hex, sha256HexFromHex } from "@framework/utils/hash";
+export { sha256Hex, sha256HexFromHex } from "@r3e-network/neo-miniapp-framework/utils/hash";

@@ -7,4 +7,4 @@
  * imports working with the SAME function identities.
  */
 
-export { eventValue, eventStateValue } from "@framework/utils/chain-events";
+export { eventValue, eventStateValue } from "@r3e-network/neo-miniapp-framework/utils/chain-events";

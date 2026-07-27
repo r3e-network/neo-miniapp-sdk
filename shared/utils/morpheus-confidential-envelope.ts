@@ -14,8 +14,8 @@ export {
   encryptTextWithOraclePublicKey,
   encryptJsonWithOraclePublicKey,
   buildConfidentialTransferPackage,
-} from "@framework/utils/morpheus-confidential-envelope";
+} from "@r3e-network/neo-miniapp-framework/utils/morpheus-confidential-envelope";
 export type {
   ConfidentialTransferInput,
   ConfidentialTransferPackage,
-} from "@framework/utils/morpheus-confidential-envelope";
+} from "@r3e-network/neo-miniapp-framework/utils/morpheus-confidential-envelope";

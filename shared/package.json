@@ -1,6 +1,6 @@
 {
   "name": "@r3e-network/neo-miniapp-shared",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Shared runtime for Neo MiniApps: components, composables, services, and chain helpers",
   "license": "MIT",
   "type": "module",
@@ -28,7 +28,7 @@
     "directory": "shared"
   },
   "dependencies": {
-    "@r3e-network/neo-miniapp-framework": "2.2.1"
+    "@r3e-network/neo-miniapp-framework": "2.2.2"
   },
   "peerDependencies": {
     "@douyinfe/semi-foundation": "^2.101.0",

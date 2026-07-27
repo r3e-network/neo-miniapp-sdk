@@ -1,6 +1,6 @@
 {
   "name": "@r3e-network/neo-miniapp-framework",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Business SDK surfaces exposed to Neo MiniApps as ctx.framework",
   "license": "MIT",
   "type": "module",

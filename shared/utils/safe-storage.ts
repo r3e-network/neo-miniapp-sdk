@@ -13,4 +13,4 @@ export {
   safeRemoveStorage,
   safeReadJSON,
   safeWriteJSON,
-} from "@framework/utils/safe-storage";
+} from "@r3e-network/neo-miniapp-framework/utils/safe-storage";

@@ -14,4 +14,4 @@ export {
   gasToBaseUnits,
   neoToInteger,
   amountToBaseUnits,
-} from "@framework/utils/amounts";
+} from "@r3e-network/neo-miniapp-framework/utils/amounts";
