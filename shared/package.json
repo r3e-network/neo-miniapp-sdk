@@ -1,13 +1,18 @@
 {
   "name": "@r3e-network/neo-miniapp-shared",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Shared runtime for Neo MiniApps: components, composables, services, and chain helpers",
   "license": "MIT",
   "type": "module",
   "main": "./components/index.ts",
   "exports": {
-    ".": "./components/index.ts",
-    "./*": "./*"
+    ".": "./index.ts",
+    "./*": [
+      "./*",
+      "./*.ts",
+      "./*.tsx",
+      "./*/index.ts"
+    ]
   },
   "files": [
     "**/*",
@@ -28,7 +33,7 @@
     "directory": "shared"
   },
   "dependencies": {
-    "@r3e-network/neo-miniapp-framework": "2.2.2"
+    "@r3e-network/neo-miniapp-framework": "2.2.3"
   },
   "peerDependencies": {
     "@douyinfe/semi-foundation": "^2.101.0",

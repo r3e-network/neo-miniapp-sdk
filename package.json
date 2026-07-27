@@ -1,6 +1,6 @@
 {
   "name": "@r3e-network/neo-miniapp-sdk",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "private": true,
   "description": "MiniApp SDK for the Neo MiniApps platform: business framework and shared app runtime",
   "license": "MIT",

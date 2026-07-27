@@ -1,6 +1,6 @@
 {
   "name": "@r3e-network/neo-miniapp-framework",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Business SDK surfaces exposed to Neo MiniApps as ctx.framework",
   "license": "MIT",
   "type": "module",
@@ -8,7 +8,12 @@
   "types": "./index.ts",
   "exports": {
     ".": "./index.ts",
-    "./*": "./*"
+    "./*": [
+      "./*",
+      "./*.ts",
+      "./*.tsx",
+      "./*/index.ts"
+    ]
   },
   "files": [
     "**/*",
