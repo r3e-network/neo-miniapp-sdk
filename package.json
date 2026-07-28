@@ -17,7 +17,9 @@
     "test:framework": "npm --workspace framework run test",
     "test:shared": "npm --workspace shared run test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test:cross-repo": "npm --workspace framework run test:cross-repo; npm --workspace shared run test:cross-repo"
+    "test:cross-repo": "npm --workspace framework run test:cross-repo; npm --workspace shared run test:cross-repo",
+    "generate:contract-registry": "node scripts/generate-miniapp-contract-registry.mjs",
+    "tokenize:palette": "node scripts/tokenize-palette-hex.mjs"
   },
   "devDependencies": {
     "@douyinfe/semi-ui": "^2.101.0",
