@@ -7,7 +7,7 @@ import { MORPHEUS_PUBLIC_SIGNER_REGISTRY } from './generated-morpheus-signer-reg
  * Canonical Neo N3 + Morpheus / AA integration registry for the MiniApp platform.
  *
  * This repository consumes the externally deployed stacks from:
- * - neo-morpheus-oracle
+ * - neo-os
  * - neo-abstract-account
  *
  * Public Morpheus deployment metadata is generated from the canonical Oracle

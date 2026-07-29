@@ -2,7 +2,7 @@
  * Wire constants for the host <-> MiniApp postMessage bridges.
  *
  * Both ends of every bridge now live in different repositories - the host in
- * neo-miniapps-platform, the clients in neo-minigames and neo-miniapps - so
+ * neo-os-web, the clients in neo-minigames and neo-miniapps - so
  * neither side can import the other's copy. This module is the one declaration
  * they share, and each side's guard test asserts against it. Change a value here
  * and both sides fail together, which is the point: a silently renamed event was

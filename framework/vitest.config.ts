@@ -10,7 +10,7 @@ const repoRoot = resolve(currentDir, "..");
  *
  * They came over with the framework and still assert against things the SDK
  * repo does not contain: contract ABI manifests and hash-vector fixtures from
- * neo-miniapps-platform, game sources from neo-minigames, and - in
+ * neo-os-web, game sources from neo-minigames, and - in
  * framework-boundary - the monorepo workspace layout that the split replaced.
  *
  * They are excluded from `npm test` rather than deleted: each one encodes a real

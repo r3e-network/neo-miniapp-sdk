@@ -1,4 +1,4 @@
-// Generated from neo-morpheus-oracle/config/signer-identities.json.
+// Generated from neo-os/config/signer-identities.json.
 // Do not edit manually; re-export from the Morpheus canonical oracle workspace.
 
 export const MORPHEUS_PUBLIC_SIGNER_REGISTRY = {

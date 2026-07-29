@@ -2,7 +2,7 @@
 //
 // Drift guard for the vendored Morpheus confidential-envelope encryptor
 // (apps/shared/utils/morpheus-confidential-envelope.ts). The canonical
-// implementation lives in neo-morpheus-oracle
+// implementation lives in neo-os
 // packages/shared/src/confidential-envelope.js and the deployed decryptor in
 // workers/nitro-worker/src/oracle/crypto.js. This test encrypts with the
 // LOCAL copy and decrypts with decrypt helpers vendored verbatim from the
@@ -23,7 +23,7 @@ const PINNED_ENVELOPE_INFO = "morpheus-confidential-payload-v2";
 const PINNED_IV_LENGTH_BYTES = 12;
 const PINNED_TAG_LENGTH_BYTES = 16;
 
-// Golden vector shared with neo-morpheus-oracle
+// Golden vector shared with neo-os
 // packages/shared/src/confidential-envelope.test.mjs (test fixture keypair —
 // never use outside tests). It was verified against the live worker
 // decryptor when the canonical module was extracted.

@@ -1,7 +1,7 @@
 # neo-miniapp-sdk
 
 The SDK every Neo MiniApp and MiniGame builds against. Split out of
-[neo-miniapps-platform](https://github.com/r3e-network/neo-miniapps-platform) so
+[neo-os-web](https://github.com/r3e-network/neo-os-web) so
 that the platform repo holds only platform code, and app repos depend on a
 versioned SDK instead of a monorepo path.
 
@@ -16,7 +16,7 @@ versioned SDK instead of a monorepo path.
 
 - `neo-miniapps` — non-game MiniApps
 - `neo-minigames` — MiniGames
-- `neo-miniapps-platform` — host app and admin console
+- `neo-os-web` — host app and admin console
 
 Apps keep importing `@shared/*` and `@framework/*`; only what those aliases
 point at changed. In an app repo they resolve into `node_modules`.

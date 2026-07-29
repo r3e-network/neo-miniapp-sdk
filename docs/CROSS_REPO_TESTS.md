@@ -12,7 +12,7 @@ npm run test:cross-repo
 They are kept rather than deleted: each encodes a real invariant. What changed is
 which repository is in a position to check it.
 
-## Belongs in neo-miniapps-platform
+## Belongs in neo-os-web
 
 These read `contracts/**` — ABI manifests and `CreateContractHash` vectors — to
 assert the SDK surface covers every tenant-facing contract method. The contracts
