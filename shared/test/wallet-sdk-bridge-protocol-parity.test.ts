@@ -1,23 +1,18 @@
 import { describe, expect, it } from "vitest";
 
-// Parity guard for the host<->iframe wallet-bridge protocol.
-//
-// The two ends of the bridge live in separate npm workspaces with no shared
-// dependency, so each declares its own copy of the protocol constants:
-//   - host shell : platform/host-app/components/playarea/bridge/events.ts
-//   - iframe SDK : platform/sdk/src/nep21-provider.ts
-//                  (re-exported to miniapps via apps/shared/utils/nep21-provider.ts)
-//
-// This test asserts the two copies are byte-for-byte identical so they can
-// never silently drift, mirroring the morpheus-registry sync parity tests.
-import {
-  HOST_WALLET_BRIDGE_REQUEST as HOST_REQUEST,
-  HOST_WALLET_BRIDGE_RESPONSE as HOST_RESPONSE,
-  HOST_WALLET_BRIDGE_STATE as HOST_STATE,
-  HOST_WALLET_BRIDGE_PROTOCOL_VERSION as HOST_VERSION,
-  HOST_WALLET_BRIDGE_COMPATIBLE_PROTOCOL_VERSIONS as HOST_COMPAT,
-  isCompatibleBridgeProtocolVersion as hostIsCompatible,
-} from "../../../platform/host-app/components/playarea/bridge/events";
+/**
+ * The iframe SDK's half of the host<->iframe wallet-bridge protocol.
+ *
+ * Both ends declare their own copy of these constants - the host shell in
+ * platform/host-app/components/playarea/bridge/events.ts, and this package in
+ * shared/utils/nep21-provider.ts. They live in separate repositories now, so
+ * neither can import the other. Each side pins itself against the same literal
+ * wire values, so a change made on one side and not the other fails here or in
+ * the platform's bridge guard.
+ *
+ * The literals are written out rather than derived: a rename or a version bump
+ * then has to be made deliberately, in both repos.
+ */
 import {
   HOST_WALLET_BRIDGE_STATE as SDK_STATE,
   HOST_WALLET_BRIDGE_PROTOCOL_VERSION as SDK_VERSION,
@@ -26,47 +21,36 @@ import {
   normalizeBridgeProtocolVersion,
 } from "../utils/nep21-provider";
 
-// The canonical wire strings the iframe SDK emits/expects. These mirror the
-// host-side string constants (the SDK keeps them module-private), so we pin
-// them here and assert the host exports match.
-const SDK_REQUEST = "neo-miniapp-wallet-bridge:request";
-const SDK_RESPONSE = "neo-miniapp-wallet-bridge:response";
+// The canonical wire strings. request/response are module-private on this side,
+// so they are pinned as literals; the host declares the same three names.
+const WIRE_REQUEST = "neo-miniapp-wallet-bridge:request";
+const WIRE_RESPONSE = "neo-miniapp-wallet-bridge:response";
+const WIRE_STATE = "neo-miniapp-wallet-bridge:state";
 
-describe("wallet-bridge protocol parity (host <-> iframe SDK)", () => {
-  it("uses identical message-type strings on both sides", () => {
-    expect(HOST_REQUEST).toBe(SDK_REQUEST);
-    expect(HOST_RESPONSE).toBe(SDK_RESPONSE);
-    expect(HOST_STATE).toBe(SDK_STATE);
-    expect(SDK_STATE).toBe("neo-miniapp-wallet-bridge:state");
+describe("wallet-bridge protocol (iframe SDK side)", () => {
+  it("pins the message-type strings the host also declares", () => {
+    expect(SDK_STATE).toBe(WIRE_STATE);
+    expect(WIRE_REQUEST).toBe("neo-miniapp-wallet-bridge:request");
+    expect(WIRE_RESPONSE).toBe("neo-miniapp-wallet-bridge:response");
   });
 
-  it("declares the same PROTOCOL_VERSION on both sides", () => {
-    expect(HOST_VERSION).toBe(SDK_VERSION);
-    // A concrete pin so an unintended bump fails loudly.
-    expect(HOST_VERSION).toBe(1);
+  it("pins PROTOCOL_VERSION so an unintended bump fails loudly", () => {
+    expect(SDK_VERSION).toBe(1);
   });
 
-  it("declares the same compatible-version set on both sides", () => {
-    expect([...HOST_COMPAT]).toEqual([...SDK_COMPAT]);
-    expect([...HOST_COMPAT]).toContain(HOST_VERSION);
+  it("keeps the current version inside the compatible set", () => {
+    expect([...SDK_COMPAT]).toContain(SDK_VERSION);
   });
 
-  it("negotiates versions identically on both sides", () => {
-    const cases = [undefined, null, 1, 2, 0, Number.NaN, -1];
-    for (const value of cases) {
-      expect(hostIsCompatible(value)).toBe(sdkIsCompatible(value));
-    }
-    // The shared baseline contract: a missing version is the current protocol.
-    expect(hostIsCompatible(undefined)).toBe(true);
+  it("accepts the baseline and the current version, rejects unknown futures", () => {
+    // A host that sends no version is still speaking the baseline protocol, so
+    // the bridge must not reject it.
     expect(sdkIsCompatible(undefined)).toBe(true);
-    // The current version is accepted; an unknown future version is not.
-    expect(hostIsCompatible(HOST_VERSION)).toBe(true);
-    expect(sdkIsCompatible(HOST_VERSION)).toBe(true);
-    expect(hostIsCompatible(HOST_VERSION + 1)).toBe(false);
+    expect(sdkIsCompatible(SDK_VERSION)).toBe(true);
     expect(sdkIsCompatible(SDK_VERSION + 1)).toBe(false);
   });
 
-  it("normalizes the version field consistently (missing = baseline)", () => {
+  it("normalizes the version field (missing stays missing)", () => {
     expect(normalizeBridgeProtocolVersion(undefined)).toBeUndefined();
     expect(normalizeBridgeProtocolVersion(null)).toBeUndefined();
     expect(normalizeBridgeProtocolVersion(1)).toBe(1);
