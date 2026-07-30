@@ -19,3 +19,6 @@ obj/
 *.log
 test-results/
 playwright-report/
+
+# Local knowledge-graph output; never committed.
+graphify-out/
