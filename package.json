@@ -13,13 +13,16 @@
     "shared"
   ],
   "scripts": {
-    "test": "npm run -s test:framework && npm run -s test:shared",
+    "test": "npm run -s test:framework && npm run -s test:shared && npm run -s test:scripts && npm run -s check:platform-surface",
     "test:framework": "npm --workspace framework run test",
     "test:shared": "npm --workspace shared run test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test:cross-repo": "npm --workspace framework run test:cross-repo; npm --workspace shared run test:cross-repo",
     "generate:contract-registry": "node scripts/generate-miniapp-contract-registry.mjs",
-    "tokenize:palette": "node scripts/tokenize-palette-hex.mjs"
+    "tokenize:palette": "node scripts/tokenize-palette-hex.mjs",
+    "audit:platform-surface": "node scripts/audit_platform_surface_parity.mjs",
+    "check:platform-surface": "node scripts/audit_platform_surface_parity.mjs --check",
+    "test:scripts": "node --test scripts/lib/*.test.mjs"
   },
   "devDependencies": {
     "@douyinfe/semi-ui": "^2.101.0",
